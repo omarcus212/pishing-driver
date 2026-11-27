@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Protótipo demonstrativo de tela de confirmação de solicitação."
+    />
+    <title>Solicitação recebida — Demonstração</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="confirmation" aria-labelledby="page-title">
+        <header class="page-header">
+          <div class="success-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7" /></svg>
+          </div>
+          <div>
+            <h1 id="page-title">Solicitação recebida!</h1>
+            <p class="warning">O seu boletim ainda não foi emitido.</p>
+          </div>
+        </header>
+
+        <p class="intro">
+          Sua solicitação foi encaminhada para análise da unidade responsável.
+          Se necessário, um atendente poderá entrar em contato pelos dados
+          informados durante o preenchimento.
+        </p>
+
+        <div class="details">
+          <section class="detail">
+            <h2>
+              <span class="info-icon" aria-hidden="true">i</span>Protocolo
+            </h2>
+            <div class="detail-content">
+              <p class="protocol" id="protocol">7814698/2026</p>
+              <button class="copy-button" id="copyProtocol" type="button">
+                Copiar protocolo
+              </button>
+            </div>
+          </section>
+
+          <section class="detail">
+            <h2><span class="info-icon" aria-hidden="true">i</span>Situação</h2>
+            <div class="detail-content">
+              <p>
+                <span class="status-dot"></span
+                ><span id="status">Pendente de análise</span>
+              </p>
+            </div>
+          </section>
+
+          <section class="detail">
+            <h2>
+              <span class="info-icon" aria-hidden="true">i</span>Data e hora do
+              registro
+            </h2>
+            <div class="detail-content">
+              <p id="registeredAt">Carregando data e hora...</p>
+            </div>
+          </section>
+
+          <section class="detail">
+            <h2>
+              <span class="info-icon" aria-hidden="true">i</span>Importante
+            </h2>
+            <div class="detail-content">
+              <p>
+                Sua solicitação está em análise. O envio desta solicitação não
+                significa que o boletim de ocorrência já foi emitido. Acompanhe
+                as atualizações pelos canais oficiais do serviço utilizado.
+              </p>
+            </div>
+          </section>
+
+          <section class="detail contacts">
+            <h2>
+              <span class="info-icon" aria-hidden="true">i</span>Contatos e
+              orientações
+            </h2>
+            <div class="detail-content">
+              <p>
+                Para orientação jurídica gratuita, procure a Defensoria Pública
+                da sua região e consulte os canais de atendimento disponíveis.
+              </p>
+              <a
+                href="https://www.defensoria.sp.def.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Site da Defensoria Pública do Estado de São Paulo
+              </a>
+              <p class="phone-note">
+                Consulte no site oficial os telefones e horários de atendimento
+                atualizados.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <button class="home-button" id="homeButton" type="button">
+          Página inicial
+        </button>
+        <p class="disclaimer">
+          Esta página é apenas uma simulação de interface. Nenhum registro
+          policial foi realizado.
+        </p>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

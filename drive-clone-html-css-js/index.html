@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drive — Clone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Drive">
+        <span class="drive-logo"><i></i><b></b><em></em></span
+        ><span>Drive</span>
+      </a>
+      <div class="search-wrap">
+        <button class="menu-btn" id="menuBtn" title="Menu" data-i="menu"></button>
+        <span class="search-icon"></span>
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Pesquise no Drive"
+          autocomplete="off"
+        />
+        <button class="search-filter" title="Opções de pesquisa">☷</button>
+      </div>
+      <div class="top-actions">
+        <button class="icon-button" title="Ajuda">?</button>
+        <button class="icon-button" title="Configurações">⚙</button>
+        <button class="gemini" title="Gemini"></button>
+        <button class="upgrade">Fazer upgrade</button>
+        <button class="apps" title="Aplicativos do Google">▦</button>
+        <button class="avatar" title="Conta">E</button>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <button class="new-button" id="newButton"><span>＋</span> Novo</button>
+      <nav class="main-nav">
+        <a class="nav-item active" href="#" data-section="Pessoal"
+          ><span>⌂</span>Pessoal</a
+        >
+        <a class="nav-item" href="#" data-section="Projetos"
+          ><span>▣</span>Projetos</a
+        >
+        <a class="nav-item" href="#" data-section="Meu Drive"
+          ><span>▱</span>Meu Drive</a
+        >
+        <a class="nav-item" href="#" data-section="Computadores"
+          ><span>▣</span>Computadores</a
+        >
+        <a class="nav-item spaced" href="#" data-section="Compartilhados comigo"
+          ><span>♧</span>Compartilhados comigo</a
+        >
+        <a class="nav-item" href="#" data-section="Recentes"
+          ><span>◷</span>Recentes</a
+        >
+        <a class="nav-item" href="#" data-section="Com estrela"
+          ><span>☆</span>Com estrela</a
+        >
+        <a class="nav-item spaced" href="#" data-section="Spam"
+          ><span>⊘</span>Spam</a
+        >
+        <a class="nav-item" href="#" data-section="Lixeira"
+          ><span>▤</span>Lixeira</a
+        >
+        <a class="nav-item" href="#" data-section="Armazenamento"
+          ><span>☁</span>Armazenamento</a
+        >
+      </nav>
+      <div class="storage">
+        <div class="storage-track"><span></span></div>
+        <p><strong id="storageUsed">5,85 GB</strong> de 15 GB usados</p>
+        <button class="storage-button">Comprar mais<br />armazenamento</button>
+      </div>
+    </aside>
+
+    <aside class="side-panel"><i class="sp cal">31</i><i class="sp keep"></i><i class="sp task"></i><i class="sp contact"></i><hr /><span data-i="plus"></span></aside>
+    <div class="crumb-bar hidden" id="crumbBar"><span data-i="drive" data-s="18"></span> Meu Drive <span data-i="right" data-s="20"></span> <span data-i="folder" data-s="18"></span> <span id="crumbFolder"></span> <span data-i="right" data-s="20"></span> <span class="crumb-ic"></span> <span id="crumbName"></span></div>
+    <main class="workspace">
+      <div class="content">
+        <div class="greeting-row">
+          <h1 id="pageTitle">Olá! Este é o Google Drive</h1>
+          <button class="help-info" title="Informações">ⓘ</button>
+        </div>
+        <section class="suggested-folders">
+          <button class="section-toggle" id="folderToggle">
+            <span class="chevron">›</span> Pastas sugeridas
+          </button>
+          <div class="folder-suggestions hidden" id="folderSuggestions">
+            <button class="folder-card">
+              <span class="folder-icon">📁</span><span>Fotos antigas</span
+              ><small>Minha pasta</small>
+            </button>
+          </div>
+        </section>
+
+        <section class="files-section">
+          <div class="files-heading">
+            <button class="section-toggle">
+              <span class="chevron down">›</span> Arquivos sugeridos
+            </button>
+            <div class="view-switch">
+              <button
+                class="view-btn selected"
+                id="listView"
+                title="Visualização em lista"
+              >
+                ☰
+              </button>
+              <button
+                class="view-btn"
+                id="gridView"
+                title="Visualização em grade"
+              >
+                ▦
+              </button>
+            </div>
+          </div>
+          <div class="table-wrap" id="tableWrap">
+            <div class="table-head">
+              <span>Nome <span class="sort">↕</span></span>
+              <span>Porque sugerimos este arquivo</span>
+              <span>Proprietário</span>
+              <span>Local</span>
+              <span></span>
+            </div>
+            <div id="fileRows" class="file-rows"></div>
+          </div>
+          <div id="gridFiles" class="grid-files hidden"></div>
+          <button class="more-link" id="moreButton">Mais</button>
+          <div class="empty-state hidden" id="emptyState">
+            <div class="empty-art">⌕</div>
+            <h2>Nenhum arquivo encontrado</h2>
+            <p>Tente pesquisar outro termo ou limpar a pesquisa.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="scrim hidden" id="scrim"></div>
+    <button class="fab" id="fab"><span data-i="plus" data-s="24"></span> Novo</button>
+    <nav class="bottom-nav">
+      <button data-go="Pessoal" class="active"><span class="bn-ic" data-i="home"></span>Início</button>
+      <button data-go="Com estrela"><span class="bn-ic" data-i="star"></span>Com estrela</button>
+      <button data-go="Compartilhados comigo"><span class="bn-ic" data-i="people"></span>Compartilhados</button>
+      <button data-go="Meu Drive"><span class="bn-ic" data-i="folder"></span>Arquivos</button>
+    </nav>
+    <div class="popup-menu hidden" id="newMenu">
+      <button data-action="upload-file">
+        <span>↑</span> Upload de arquivo
+      </button>
+      <button data-action="upload-folder">
+        <span>⇧</span> Upload de pasta
+      </button>
+      <div class="menu-divider"></div>
+      <button data-action="new-folder"><span>📁</span> Nova pasta</button>
+      <button data-action="new-doc"><span>▤</span> Documentos Google</button>
+      <button data-action="new-sheet"><span>▦</span> Planilhas Google</button>
+    </div>
+    <input type="file" id="filePicker" multiple hidden />
+    <input type="file" id="folderPicker" webkitdirectory multiple hidden />
+
+    <div class="modal-backdrop hidden" id="modalBackdrop">
+      <div class="modal">
+        <h2>Nova pasta</h2>
+        <p>Digite um nome para a pasta.</p>
+        <input
+          id="folderName"
+          type="text"
+          placeholder="Pasta sem título"
+          maxlength="60"
+        />
+        <div class="modal-actions">
+          <button id="cancelModal">Cancelar</button
+          ><button class="primary" id="createFolder">Criar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast hidden" id="toast"></div>
+
+    <div class="image-viewer hidden" id="imageViewer">
+      <div class="viewer-header">
+        <button id="closeViewer" class="v-btn" title="Fechar" data-i="close"></button>
+        <span class="v-file-ic"></span>
+        <div class="v-title"><div id="viewerFileName"></div><nav><span>Arquivo</span><span>Acessar</span><span>Inserir</span><span>Ferramentas</span><span>Ajuda</span></nav></div>
+        <div class="v-actions"><button class="open-with">Abrir com <span data-i="chevronDown" data-s="16"></span></button><button class="share-btn"><span data-i="share" data-s="18"></span> Compartilhar</button><span class="gem" data-i="gemini" data-s="26"></span></div>
+      </div>
+      <div class="viewer-tools">
+        <div class="tool-pill"><button id="viewerDownload" class="v-btn" data-i="download"></button><button id="viewerPrint" class="v-btn" data-i="print"></button><button id="viewerFull" class="v-btn" data-i="full"></button><i></i><button id="zoomOut" class="v-btn" data-i="minus"></button><button id="zoomReset" class="v-btn" data-i="zoom"></button><button id="zoomIn" class="v-btn" data-i="plus"></button></div>
+        <div class="comment-pill"><span data-i="comment" data-s="20"></span> Comentário</div>
+      </div>
+      <div class="viewer-content" id="viewerBackdrop"><img id="viewerImage" alt="Visualização da imagem" /></div>
+      <button class="v-nav prev" id="viewerPrev" data-i="left" data-s="24"></button>
+      <button class="v-nav next" id="viewerNext" data-i="right" data-s="24"></button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

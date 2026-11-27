@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #242633;
+  background: #f8f8fa;
+  font-synthesis: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f8f8fa;
+}
+
+.page {
+  width: min(100% - 48px, 1260px);
+  margin: 0 auto;
+  padding: 32px 0 54px;
+}
+
+.confirmation {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.success-mark {
+  display: none;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 50%;
+  background: #e7f4eb;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-mark svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #18864b;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+h1 {
+  margin: 0 0 7px;
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+}
+
+.warning {
+  margin: 0;
+  color: #e56b1f;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.intro {
+  max-width: 1160px;
+  margin: 16px 0 30px;
+  color: #41434d;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.detail h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #252735;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border-radius: 50%;
+  background: #5a5b78;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 0 0 2px #e2e2e9;
+}
+
+.detail-content {
+  margin-left: 10px;
+  padding: 5px 0 5px 19px;
+  border-left: 2px solid #d1d2d9;
+  color: #646777;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.detail-content p {
+  margin: 0;
+}
+
+.protocol {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.2px;
+}
+
+.copy-button {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 0;
+  color: #245fc5;
+  background: transparent;
+  border: 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.copy-button:hover,
+.detail-content a:hover {
+  text-decoration: underline;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #d58a25;
+}
+
+.contacts .detail-content {
+  padding-bottom: 7px;
+}
+
+.detail-content a {
+  display: inline-block;
+  margin-top: 7px;
+  color: #3474cf;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.detail-content .phone-note {
+  margin-top: 5px;
+}
+
+.home-button {
+  display: block;
+  width: min(290px, 100%);
+  min-height: 54px;
+  margin-top: 32px;
+  border: 0;
+  border-radius: 13px;
+  background: #0757e9;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.home-button:hover {
+  background: #064bc8;
+}
+
+.home-button:active {
+  transform: translateY(1px);
+}
+
+.disclaimer {
+  margin: 14px 0 0;
+  color: #858895;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 10;
+  max-width: calc(100% - 32px);
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #292b35;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 5px 18px #0002;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #80aaff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+  .page {
+    width: min(100% - 32px, 1160px);
+    padding-top: 25px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+  }
+
+  .intro {
+    font-size: 16px;
+    margin-bottom: 26px;
+  }
+
+  .details {
+    gap: 23px;
+  }
+
+  .detail h2 {
+    font-size: 16px;
+  }
+
+  .detail-content {
+    font-size: 15px;
+  }
+
+  .home-button {
+    width: 100%;
+  }
+}
